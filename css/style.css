@@ -1,0 +1,179 @@
+:root {
+    --main-bg: rgb(24, 25, 29);
+    --content-bg: rgb(34, 36, 40);
+    /* --cool-gradient:  */
+}
+
+body {
+    width: 100vw;
+    background-color: blue;
+    margin: 0;
+}
+
+.page-container {
+    width: 100vw;
+    height: fit-content;
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-areas:
+    'nv hd'
+    'nv mn';
+    grid-template-columns: min-content 1fr;
+
+    background-color: green;
+}
+
+nav {
+    grid-area: nv;
+    background-color: red;
+}
+
+.page-container > nav {
+    width: 4rem;
+    background: linear-gradient(45deg, rgba(18,211,242,1) 0%, rgba(193,255,125,1) 100%);
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    overflow: hidden;
+    transition-duration: 0.5s;
+    white-space: nowrap;
+}
+
+nav .button-display {
+    width: auto;
+    height: fit-content;
+    position: relative;
+}
+
+nav .button-display .button {
+    width: auto;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 1.5em 0 0 1.5em;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: 400;
+    user-select: none;
+    cursor: pointer;
+
+    transition-duration: 0.3s;
+}
+
+nav .button-display .button.selected {
+    /* background-color: var(--main-bg); */
+    color: white;
+}
+
+nav .button-display .button .icon {
+    margin-right: 1.8rem;
+    position: relative;
+}
+
+nav .button-display #button-highlight {
+    width: 100%;
+    height: 100px;
+    background-color: var(--main-bg);
+    border-radius: 1.5em 0 0 1.5em;
+    position: absolute;
+    top: 0;
+    transition-duration: 0.3s;
+}
+
+nav .button-display #button-highlight::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    box-shadow: 1rem 1rem 0 0 var(--main-bg);
+    background-color: transparent;
+}
+
+nav .button-display #button-highlight::after {
+    content: "";
+    position: absolute;
+    bottom: -2rem;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    box-shadow: 1rem -1rem 0 0 var(--main-bg);
+    background-color: transparent;
+}
+
+nav.active {
+    width: 15rem;
+}
+
+nav > header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1.5rem;
+    user-select: none;
+    margin-bottom: 1.5rem;
+}
+
+.page-container > header {
+    /* width: auto; */
+    height: fit-content;
+    grid-area: hd;
+    display: flex;
+    align-items: center;
+    background-color: magenta;
+}
+
+.page-container > header .menu-toggle {
+    width: fit-content;
+    height: fit-content;
+    font-size: 2.5rem;
+    margin-left: 0.5rem;
+    background-color: transparent;
+    float: left;
+    transition-duration: 0.15s;
+    background-color: red;
+    /* transform: rotate(180deg) */
+}
+
+.page-container > header .menu-toggle:hover {
+    /* transform: rotate(180deg) scale(1.2) */
+    transform: rotate(0deg) scale(1.2);
+}
+
+.page-container > header .menu-toggle.active {
+    /* transform: rotate(0deg) */
+    transform: rotate(180deg);
+}
+
+.page-container > header .menu-toggle.active:hover {
+    /* transform: rotate(0deg) scale(1.2) */
+    transform: rotate(180deg) scale(1.2);
+}
+
+.page-container > header > h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+main {
+    grid-area: mn;
+}
+
+main#page0 {
+    width: auto;
+    height: 900px;
+    display: grid;
+    /* grid-template-rows: 6rem 12rem auto; */
+    grid-template-areas:
+    "hd hd"
+    "mb ev"
+    "td ev";
+    grid-template-rows: 6rem 14rem auto;
+    grid-template-columns: 2fr 3fr;
+    background-color: cyan;
+}
+
