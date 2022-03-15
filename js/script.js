@@ -19,8 +19,6 @@ function onMenuToggle() {
 }
 
 function switchPage(index) {
-    console.log("Switched page");
-    console.log(navBarActive);
     currentPage = index;
     
     let pages = document.querySelectorAll("main");
@@ -54,7 +52,6 @@ function selectButton(index) {
 }
 
 function setNavBarActive(active) {
-    console.log("Setting nav bar activity to " + active);
     let navigationBar = document.querySelector("nav");
     let menuToggleButton = document.querySelector("header > .menu-toggle");
 
