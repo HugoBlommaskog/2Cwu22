@@ -25,7 +25,12 @@ function switchPage(index) {
     pages.forEach(page => page.style.display = "none");
 
     let displayedPage = document.getElementById("page" + index);
-    displayedPage.style.display = "grid";
+    displayedPage.style.display = "flex";
+
+    //
+    displayedPage.style.height = "fit-content";
+    displayedPage.style.minHeight = "100%";
+    //
 
     let menuToggleButton = document.querySelector("header > .menu-toggle");
     menuToggleButton.addEventListener("click", onMenuToggle);

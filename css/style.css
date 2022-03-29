@@ -1,5 +1,5 @@
 :root {
-    --main-bg: rgb(35, 37, 39);
+    --main-bg: rgb(24, 25, 29);
     --content-bg: rgb(34, 36, 40);
     --gula-grabben: rgb(240, 187, 14);
     /* --cool-gradient:  */
@@ -9,6 +9,9 @@ body {
     /* width: 100vw; */
     background-color: blue;
     margin: 0;
+    padding: 0;
+    /* width: 100vw; */
+    height: 100vh;
 }
 
 .page-container {
@@ -28,7 +31,8 @@ body {
 
 nav {
     width: 4rem;
-    height: 100%;
+    /* height: 100%; */
+    max-height: 100%;
     /* background: linear-gradient(45deg, rgba(18,211,242,1) 0%, rgba(193,255,125,1) 100%); */
     /* background: linear-gradient(45deg, rgba(213,18,39,1) 0%, rgba(203,125,255,1) 100%); */
     background-color: var(--gula-grabben);
@@ -56,13 +60,13 @@ nav > header {
 
 nav .button-display {
     width: auto;
-    height: fit-content;
+    height: min-content;
     position: relative;
 }
 
 nav .button-display .button {
     width: auto;
-    height: fit-content;
+    height: min-content;
     display: flex;
     align-items: center;
     padding: 1rem 1rem 1rem 1rem;
@@ -133,11 +137,17 @@ nav.active {
     align-items: center;
     background-color: var(--main-bg);
     color: white;
+
+    justify-content: center;
+
+    position: relative;
 }
 
 .page-container > header .menu-toggle {
     width: fit-content;
     height: fit-content;
+    position: absolute;
+    left: 0;
     font-size: 2.5rem;
     margin-left: 0.5rem;
     float: left;
@@ -170,31 +180,128 @@ main {
     grid-area: mn;
     background-color: var(--main-bg);
     margin: 0;
-    padding: 0;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: fit-content;
+    min-height: 100%;
+    box-sizing: border-box;
 
+    height: fit-content;
+    min-height: 100%;
+    padding: 1rem;
+    max-height: 800px;
+    overflow: scroll;
 }
 
 main#page0 {
-    width: 100%;    
-    height: fit-content;
-    min-height: 100%;
-
-    display: grid;
+    width: 100%;
+    /* height: fit-content; */
+    /* min-height: 100%; */
 
     box-sizing: border-box;
+    /* display:  */
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
-main > .card {
-    background-color: cyan;
-
-    padding: 0;
-    margin: 0;
-    /* margin-left: 80px; */
-    /* margin-right: 80px; */
-    height: auto;
-    width: auto;
+main#page3 {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 80vh;
+    overflow: hidden;
 }
 
-main#page0 > .card {
-    height: 100%;
+main .card {
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    background-color: var(--content-bg);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    user-select: none;
+    padding: 1rem 1rem 1rem 1rem;
+    position: relative;
+    transition-duration: 0.15s;
+    background-color: var(--content-bg);
+    /* margin: 40px; */
+    color: white;
+}
+
+main .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5rem;
+    background: var(--gula-grabben);
+}
+
+main#page0 .card {
+    /* height: 90%; */
+    min-height: 90%;
+    /* width: 80vw; */
+    /* width: auto; */
+    width: 90%;
+    max-width: 900px;
+    /* margin: auto; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main#page3 .card {
+    height: fit-content;
+    width: 90%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+main > .content-container {
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--main-bg);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--main-bg);
+}
+
+main h2 {
+    font-size: 30px;
+    color: cyan;
+    margin-bottom: 5px;
+}
+
+main h2 > .date {
+    font-size: 18px;
+    color: gray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+main p {
+    font-size: 20px;
+    color: white;
+    margin-top: 5px;
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
