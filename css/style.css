@@ -227,14 +227,30 @@ main#page2, main#page3 {
     background: var(--gula-grabben);
 }
 
-main#page0 .card {
+main#page0 .card, main#page1 .card {
     min-height: 90%;
     width: 90%;
-    max-width: 900px;
+    max-width: 800px;
+}
+
+main#page1 .card {
+    padding: 40px;
+}
+
+main#page1 img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 0;
 }
 
 main#page2 .card {
+    width: 400px;
     margin-top: 0;
+}
+
+main#page2 img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 main#page3 .card {
