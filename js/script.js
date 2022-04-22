@@ -28,8 +28,7 @@ function switchPage(index) {
     displayedPage.style.display = "flex";
 
     //
-    displayedPage.style.height = "fit-content";
-    displayedPage.style.minHeight = "100%";
+    displayedPage.style.height = "1fr";
     //
 
     let menuToggleButton = document.querySelector("header > .menu-toggle");

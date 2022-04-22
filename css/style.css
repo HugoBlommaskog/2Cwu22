@@ -177,57 +177,51 @@ nav.active {
 }
 
 main {
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+
     grid-area: mn;
     background-color: var(--main-bg);
-    margin: 0;
-    padding-left: 50px;
-    padding-right: 50px;
-    height: fit-content;
     min-height: 100%;
     box-sizing: border-box;
 
-    height: fit-content;
-    min-height: 100%;
-    padding: 1rem;
-    max-height: 800px;
-    overflow: scroll;
+    overflow: auto;
 }
 
-main#page0 {
-    width: 100%;
-    /* height: fit-content; */
-    /* min-height: 100%; */
-
-    box-sizing: border-box;
-    /* display:  */
-    /* justify-content: center; */
-    /* align-items: center; */
+main#page1 {
+    display:flex;
 }
 
 main#page3 {
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    max-height: 80vh;
-    overflow: hidden;
 }
 
-main .card {
+.card {
+    height: fit-content;
     font-size: 2rem;
     border-radius: 1.5rem;
     background-color: var(--content-bg);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
-    overflow: hidden;
     user-select: none;
     padding: 1rem 1rem 1rem 1rem;
     position: relative;
     transition-duration: 0.15s;
     background-color: var(--content-bg);
+    overflow: hidden;
+    height: fit-content;
     /* margin: 40px; */
     color: white;
+    margin: 20px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    flex: none;
 }
 
-main .card::after {
+.card::after {
     content: "";
     position: absolute;
     top: 0;
@@ -238,33 +232,18 @@ main .card::after {
 }
 
 main#page0 .card {
-    /* height: 90%; */
     min-height: 90%;
-    /* width: 80vw; */
-    /* width: auto; */
     width: 90%;
     max-width: 900px;
-    /* margin: auto; */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 main#page3 .card {
-    height: fit-content;
     width: 90%;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 0;
     margin-bottom: 50px;
-}
 
-main > .content-container {
-    width: 100%;
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
-    background-color: red;
+    min-height: fit-content;
 }
 
 ::-webkit-scrollbar {
