@@ -36,6 +36,15 @@ function switchPage(index) {
 
     setNavBarActive(navBarActive);
     selectButton(index);
+
+    // debug
+    pages.forEach(page => console.log(page.id));
+
+
+    let cv = document.getElementById("page1");
+    console.log(cv);
+    console.log(cv.style.display);
+    // debug
 }
 
 function selectButton(index) {

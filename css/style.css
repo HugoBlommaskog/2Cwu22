@@ -189,11 +189,7 @@ main {
     overflow: auto;
 }
 
-main#page1 {
-    display:flex;
-}
-
-main#page3 {
+main#page2, main#page3 {
     display: flex;
     flex-direction: column;
 }
@@ -235,6 +231,10 @@ main#page0 .card {
     min-height: 90%;
     width: 90%;
     max-width: 900px;
+}
+
+main#page2 .card {
+    margin-top: 0;
 }
 
 main#page3 .card {
