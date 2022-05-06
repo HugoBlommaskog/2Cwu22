@@ -4,18 +4,20 @@ let navBarActive = true;
 switchPage(0);
 createInputListeners();
 
+setNavBarActive(false);
+
 function createInputListeners() {
     let navigationButtons = document.querySelectorAll("nav .button-display .button");
     navigationButtons.forEach(button => button.addEventListener("click", onNavButtonClick));
 }
 
 function onNavButtonClick() {
-    switchPage(parseInt(this.id.slice(-1)));
+    const index = parseInt(this.id.slice(-1));
+    switchPage(index);
 }
 
 function onMenuToggle() {
-    navBarActive = !navBarActive;
-    setNavBarActive(navBarActive);
+    setNavBarActive(!navBarActive);
 }
 
 function switchPage(index) {
@@ -27,24 +29,14 @@ function switchPage(index) {
     let displayedPage = document.getElementById("page" + index);
     displayedPage.style.display = "flex";
 
-    //
-    displayedPage.style.height = "1fr";
-    //
-
     let menuToggleButton = document.querySelector("header > .menu-toggle");
     menuToggleButton.addEventListener("click", onMenuToggle);
 
-    setNavBarActive(navBarActive);
+    if (!isDesktop()) {
+        setNavBarActive(false);
+    }
+
     selectButton(index);
-
-    // debug
-    pages.forEach(page => console.log(page.id));
-
-
-    let cv = document.getElementById("page1");
-    console.log(cv);
-    console.log(cv.style.display);
-    // debug
 }
 
 function selectButton(index) {
@@ -65,14 +57,27 @@ function selectButton(index) {
 }
 
 function setNavBarActive(active) {
+    navBarActive = active;
+
     let navigationBar = document.querySelector("nav");
     let menuToggleButton = document.querySelector("header > .menu-toggle");
 
     if(active) {
         navigationBar.classList.add("active");
         menuToggleButton.classList.add("active");
+
+        console.log("Making nav active");
     } else {
         navigationBar.classList.remove("active");
         menuToggleButton.classList.remove("active");
+
+        console.log("Making nav NOT active");
     }
 }
+
+function isDesktop() {
+    return (window.innerWidth > 600);
+}
+
+console.log(document.querySelector("nav"));
+console.log(document.querySelector("main#page0"));
