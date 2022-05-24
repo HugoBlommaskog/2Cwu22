@@ -1,16 +1,15 @@
 :root {
     --main-bg: rgb(24, 25, 29);
-    --content-bg: rgb(34, 36, 40);
-    --gula-grabben: rgb(240, 187, 14);
-    /* --cool-gradient:  */
+    --card-bg: rgb(34, 36, 40);
+    --yellow-clr: rgb(240, 187, 14);
+    --pg-size: 1.2em;
+    --button-text-size: 1.4em;
 }
 
 body {
-    /* width: 100vw; */
-    background-color: blue;
+    background-color: var(--main-bg);
     margin: 0;
     padding: 0;
-    /* width: 100vw; */
     height: 100vh;
 }
 
@@ -18,7 +17,6 @@ body {
     width: 100%;
     height: fit-content;
     min-height: 100vh;
-
     display: grid;
     grid-template-areas:
     'nv hd'
@@ -30,7 +28,7 @@ body {
 nav {
     width: 64px;
     max-height: 100%;
-    background-color: var(--gula-grabben);
+    background-color: var(--yellow-clr);
     padding-top: 20px;
     padding-left: 10px;
     overflow: hidden;
@@ -38,22 +36,19 @@ nav {
     white-space: nowrap;
     z-index: 1;
     grid-area: nv;
+    font-family: monospace;
 }
 
 nav > header {
-    /* height: 120px; */
-
     display: flex;
     align-items: center;
-    padding: 1rem 1rem 1rem 1rem;
-    font-size: 1.5rem;
+    padding: 16px 16px 16px 16px;
+    font-size: var(--button-text-size);
     user-select: none;
     margin-bottom: 10px;
 }
 
 nav .button-display {
-    width: auto;
-    height: min-content;
     position: relative;
 }
 
@@ -62,14 +57,12 @@ nav .button-display .button {
     height: min-content;
     display: flex;
     align-items: center;
-    padding: 1rem 1rem 1rem 1rem;
-    border-radius: 1.5em 0 0 1.5em;
+    padding: 16px 16px 16px 16px;
+    border-radius: 24px 0px 0px 24px;
     position: relative;
-    font-size: 1.4em;
-    font-weight: 400;
+    font-size: var(--button-text-size);
     user-select: none;
     cursor: pointer;
-
     transition-duration: 0.3s;
 }
 
@@ -86,33 +79,31 @@ nav .button-display #button-highlight {
     width: 100%;
     height: 100px;
     background-color: var(--main-bg);
-    border-radius: 1.5em 0 0 1.5em;
+    border-radius: 24px 0 0 24px;
     position: absolute;
-    top: 0;
     transition-duration: 0.3s;
 }
 
 nav .button-display #button-highlight::before {
     content: "";
     position: absolute;
-    top: -2rem;
+    top: -32px;
     right: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    box-shadow: 1rem 1rem 0 0 var(--main-bg);
-    /* background-color: transparent; */
+    box-shadow: 16px 16px 0 0 var(--main-bg);
 }
 
 nav .button-display #button-highlight::after {
     content: "";
     position: absolute;
-    bottom: -2rem;
+    bottom: -32px;
     right: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    box-shadow: 1rem -1rem 0 0 var(--main-bg);
+    box-shadow: 16px -16px 0 0 var(--main-bg);
     background-color: transparent;
 }
 
@@ -128,11 +119,8 @@ nav.active {
     align-items: center;
     background-color: var(--main-bg);
     color: white;
-
     justify-content: center;
-
     position: relative;
-
     z-index: 2;
 }
 
@@ -141,31 +129,28 @@ nav.active {
     height: fit-content;
     position: absolute;
     left: 0;
-    font-size: 2.5rem;
-    margin-left: 0.5rem;
+    font-size: 2.6em;
+    margin-left: 8px;
     float: left;
     transition-duration: 0.15s;
     background-color: transparent;
-    /* transform: rotate(180deg) */
 }
 
 .page-container > header > h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 2.6em;
+    font-family: monospace;
 }
 
 main {
     margin: 0;
     padding: 0;
     height: 80vh;
-
     grid-area: mn;
     background-color: var(--main-bg);
     min-height: 100%;
     box-sizing: border-box;
-
     overflow: auto;
-
     z-index: 0;
 }
 
@@ -176,21 +161,17 @@ main#page2, main#page3 {
 
 .card {
     height: fit-content;
-    font-size: 2rem;
-    border-radius: 1.5rem;
-    background-color: var(--content-bg);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
-    user-select: none;
-    padding: 0.5rem 1rem 0 1rem;
+    border-radius: 24px;
+    background-color: var(--card-bg);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
+    padding: 8px 16px 0 16px;
     position: relative;
     overflow: hidden;
     height: fit-content;
     color: white;
     margin: 20px;
-
     margin-left: auto;
     margin-right: auto;
-
     flex: none;
 }
 
@@ -200,11 +181,11 @@ main#page2, main#page3 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 1.5rem;
-    background: var(--gula-grabben);
+    height: 24px;
+    background: var(--yellow-clr);
 }
 
-main#page0 .card, main#page1 .card {
+main#page0 .card {
     min-height: 90%;
     width: 80%;
     max-width: 800px;
@@ -212,6 +193,9 @@ main#page0 .card, main#page1 .card {
 
 main#page1 .card {
     padding: 40px;
+    min-height: 90%;
+    width: 80%;
+    max-width: 800px;
 }
 
 main#page1 img {
@@ -222,7 +206,7 @@ main#page1 img {
 
 main#page2 .card {
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
     margin-top: 0;
 }
 
@@ -236,7 +220,6 @@ main#page3 .card {
     max-width: 700px;
     margin-top: 0;
     margin-bottom: 50px;
-
     min-height: fit-content;
 }
 
@@ -258,25 +241,23 @@ main#page3 .card {
 }
 
 .card h2 {
-    font-size: 30px;
-    color: cyan;
+    font-size: 1.8em;
+    font-family: monospace;
+    color:rgb(128, 187, 255);
     margin-bottom: 5px;
 }
 
 .card h2 > .date {
-    font-size: 18px;
+    font-size: 0.5em;
     color: gray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-main p {
-    font-size: 20px;
-    color: white;
-    margin-top: 5px;
-}
-
 p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: var(--pg-size);
+    color: white;
+    margin-top: 5px;
 }
 
 .desktop {
@@ -287,24 +268,17 @@ p {
     display: none;
 }
 
-header > .menu-toggle {
-    /* background-color: green !important; */
-}
-
 @media screen and (min-width: 601px) {
 
     .page-container > header .menu-toggle:hover {
-        /* transform: rotate(180deg) scale(1.2) */
         transform: rotate(0deg) scale(1.2);
     }
     
     .page-container > header .menu-toggle.active {
-        /* transform: rotate(0deg) */
         transform: rotate(180deg);
     }
     
     .page-container > header .menu-toggle.active:hover {
-        /* transform: rotate(0deg) scale(1.2) */
         transform: rotate(180deg) scale(1.2);
     }
 }
@@ -334,7 +308,6 @@ header > .menu-toggle {
         position: absolute;
         top: 0;
         width: 100vw;
-
         z-index: 2;
     }
 
@@ -343,25 +316,16 @@ header > .menu-toggle {
         background-color: var(--main-bg);
         width: 100vw;
         height: 100vh;
-
         bottom: 100vh;
         left: 0;
-
         padding-left: 0;
-
         z-index: 1;
-    }
-
-    nav {
         transition-duration: 0.7s;
     }
 
     nav.active {
-        /* height: 100px; */
-        /* display: block !important; */
         width: 100vw;
         bottom: 0;
-        /* transition-duration: 1s; */
     }
 
     .card {
@@ -382,15 +346,12 @@ header > .menu-toggle {
     }
 
     .page-container {
-        height: 100vh !important;
+        height: 100vh;
         grid-template-areas:
         'hd'
-        'nv'
         'mn';
         grid-template-columns: 1fr;
-        grid-template-rows: min-content 0 1fr;
-        /* display: flex; */
-        /* flex-direction: column; */
+        grid-template-rows: min-content 1fr;
 
     }
 
@@ -411,7 +372,7 @@ header > .menu-toggle {
     }
 
     .button-display > .button.button.selected {
-        color: var(--gula-grabben);
+        color: var(--yellow-clr);
     }
 
     #page2 .card {
