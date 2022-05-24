@@ -1,9 +1,12 @@
 let currentPage = null;
 let navBarActive = true;
 
+// Byter till att visa sida 0 (Om mig)
 switchPage(0);
+// Skapa input listeners
 createInputListeners();
 
+// Säger av navigationsbaren inte ska vara aktiv (utdragen) i början
 setNavBarActive(false);
 
 function createInputListeners() {
@@ -11,6 +14,7 @@ function createInputListeners() {
     navigationButtons.forEach(button => button.addEventListener("click", onNavButtonClick));
 }
 
+// Kallas när en knapp trycks, tar fram knappens index och byter till motsvarande sida
 function onNavButtonClick() {
     const index = parseInt(this.id.slice(-1));
     switchPage(index);
@@ -20,6 +24,7 @@ function onMenuToggle() {
     setNavBarActive(!navBarActive);
 }
 
+// Visar den valda sidan och döljer resten med display: none
 function switchPage(index) {
     currentPage = index;
     
@@ -39,6 +44,7 @@ function switchPage(index) {
     selectButton(index);
 }
 
+// Sätter markören till den tryckta knappens position
 function selectButton(index) {
     // Deselect all buttons
     let buttons = document.querySelectorAll("nav .button-display .button");
@@ -56,6 +62,7 @@ function selectButton(index) {
     buttonHighlight.style.marginTop = marginTop;
 }
 
+// Sätter navigationsbaren till antingen aktiv (utdragen) eller inte aktiv (ihoptryckt)
 function setNavBarActive(active) {
     navBarActive = active;
 
@@ -75,9 +82,7 @@ function setNavBarActive(active) {
     }
 }
 
+// Returnar huruvida CSS media queries kommer tolka sidan som desktop eller inte
 function isDesktop() {
     return (window.innerWidth > 600);
 }
-
-console.log(document.querySelector("nav"));
-console.log(document.querySelector("main#page0"));
